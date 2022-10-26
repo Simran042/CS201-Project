@@ -1,8 +1,11 @@
 #include<stdio.h>
+#include<time.h>
 #define WHITE 0
 #define GRAY 1
 #define BLACK 2
-#define MAX_NODES 1000
+#define MAX_NODES 10000
+
+//this is for the increment value
 #define MAX 1000000000
 int capacity[MAX_NODES][MAX_NODES]; // capacity matrix
 int flow[MAX_NODES][MAX_NODES];
@@ -88,18 +91,19 @@ void read_input_file() {
     int a,b,c,i,j;
     FILE* input = fopen("data.txt","r");
     // read number of nodes and edges
-    fscanf(input,"%d %d",&n,&e);
-    printf("\nNumber of Vertices : %d   Edges : %d",n,e);
+    fscanf(input,"%d %d",&vertex,&edges);
+    printf("\nNumber of Vertices : %d   Edges : %d",vertex,edges);
     // initialize empty capacity matrix 
-    for (i=0; i<n; i++) 
+    for (i=0; i<vertex; i++) 
     {
-        for (j=0; j<n; j++) 
+        for (j=0; j<vertex; j++) 
         {
             capacity[i][j] = 0;
         }
     }
+    edges = vertex + 1;
     // read edge capacities
-    for (i=0; i<e; i++) 
+    for (i=0; i<edges; i++) 
     {
         fscanf(input,"%d %d %d",&a,&b,&c);
         capacity[a][b] = c;
@@ -115,6 +119,15 @@ int main()
     // capacity[1][2] = 7;
     // capacity[1][3] = 5;
     // capacity[2][3] = 6;
+    clock_t start, end;
+
+    double cpu_time_used;
     read_input_file();
-    bfs(0,vertex-1);
+    start = clock();
+    // edges = vertex + 1;
+    // bfs(0,vertex-1);
+    printf("\nMaxflow is %d",max_flow(0, vertex-1));
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("\nTime taken is %lf", cpu_time_used);
 }
