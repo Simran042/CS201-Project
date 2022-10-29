@@ -61,7 +61,7 @@ int min(int a, int b)
 int max_flow(int source, int sink)
 {
     int u;
-    int maxFlow;
+    int maxFlow = 0;
     for(int i = 0; i<vertex; i++)
     {
         for(int j = 0; j<vertex; j++)
