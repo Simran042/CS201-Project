@@ -58,7 +58,7 @@ int bfs(int start, int target)
             
             if(u != v && residualGraph[u][v] > 0 && level[v] < 0)
             {
-                printf("\nu %d v%d\n", u,v);
+                // printf("\nu %d v%d\n", u,v);
                 level[v] = level[u] + 1;
                 enqueue(v);
             }
@@ -98,8 +98,8 @@ int dfs(int u, int sink, int flow)
             {
                 int curr_flow = min(flow, residualGraph[u][v]);
                 int min_cap = dfs(v, sink,curr_flow);
-                printf("\n%d u %d v %d currflow",u,v, curr_flow);
-                printf("\n%d min cap is\n", min_cap);
+                // printf("\n%d u %d v %d currflow",u,v, curr_flow);
+                // printf("\n%d min cap is\n", min_cap);
                 if(min_cap > 0)
                 {
                     residualGraph[u][v] -= min_cap;
