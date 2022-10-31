@@ -1,11 +1,9 @@
-
 #include<stdio.h>
 #include<time.h>
 #define WHITE 0
 #define GRAY 1
 #define BLACK 2
 #define MAX_NODES 10000
-
 //this is for the increment value
 #define MAX 2147483647
 int capacity[MAX_NODES][MAX_NODES]; // capacity matrix(original graph)
@@ -27,6 +25,7 @@ void enqueue(int x)
     color[x] = GRAY;
 
 }
+
 int dequeue()
 {
     int temp = q[head];
@@ -47,7 +46,6 @@ int bfs(int start, int target)
     head = tail = 0;
     enqueue(start);
     pred[start] = -1;
-
     level[start] = 0;
     while(head != tail)
     {
@@ -63,11 +61,11 @@ int bfs(int start, int target)
                 enqueue(v);
             }
         }
-    }
-     
+    }     
     // return color[target] == BLACK;
     return level[target] < 0 ? 0 : 1;
 } 
+
 int min(int a, int b)
 {
     return (a<b)?a:b;
@@ -145,6 +143,7 @@ int max_flow(int source, int sink)
     }
     return maxFlow;
 }
+
 int dinic(int source, int sink)
 {
     flow_max = 0;
@@ -167,6 +166,7 @@ int dinic(int source, int sink)
     return flow_max;
 
 }
+
 void read_input_file() {
     int a,b,c,i,j;
     FILE* input = fopen("data.txt","r");
@@ -182,7 +182,6 @@ void read_input_file() {
         {
             capacity[i][j] = 0;
         }
-
     }
     // read edge capacities
     for (i=0; i<edges; i++) 
@@ -194,6 +193,7 @@ void read_input_file() {
     }
     fclose(input);
 }
+
 int main()
 {
     clock_t start, end;;
