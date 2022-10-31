@@ -101,7 +101,7 @@ void read_input_file() {
             capacity[i][j] = 0;
         }
     }
-    edges = vertex + 1;
+    //edges = vertex + 1;
     // read edge capacities
     for (i=0; i<edges; i++) 
     {
