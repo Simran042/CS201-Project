@@ -63,7 +63,12 @@ int bfs(int start, int target)
         }
     }     
     // return color[target] == BLACK;
-    return level[target] < 0 ? 0 : 1;
+    if(level[target] < 0){
+        return 0;
+    }
+    else{
+        return 1;
+    }
 } 
 
 int min(int a, int b)
