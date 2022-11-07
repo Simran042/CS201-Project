@@ -126,8 +126,8 @@ int main()
     start = clock();
     // edges = vertex + 1;
     // bfs(0,vertex-1);
-    printf("\nMaxflow is %d",max_flow(0, vertex-1));
+    printf("\nMaxflow using Ford Fulkerson's algorithm is %d",max_flow(0, vertex-1));
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("\nTime taken is %lf", cpu_time_used);
+    printf("\nTime taken by Ford Fulkerson's algorithm is %lf", cpu_time_used);
 }
