@@ -73,7 +73,13 @@ int bfs(int start, int target)
 
 int min(int a, int b)
 {
-    return (a<b)?a:b;
+    if (a<b)
+    {
+        return a;
+    }
+    else{
+        return b;
+    }
 }
 
 //A dfs based function
