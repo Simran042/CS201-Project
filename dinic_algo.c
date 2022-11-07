@@ -202,8 +202,8 @@ int main()
     read_input_file();
     
     start = clock();
-    printf("\nMax flow is %d\n",dinic(0, vertex-1));
+    printf("\nMax flow using Dinic's algorithm is %d\n",dinic(0, vertex-1));
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("\nTime taken is %lf", cpu_time_used);
+    printf("\nTime taken by Dinic's algorithm is %lf", cpu_time_used);
 }
